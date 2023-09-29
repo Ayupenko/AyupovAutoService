@@ -9,7 +9,7 @@
       Title="ServicePage">
 
     <Grid>
-        <Button Content="Вперед" Height="30" Width="175" Background="#FFFF9C1A"
+        <Button Content="Вперед"
                 Click="Button_Click"></Button>
     </Grid>
 </Page>
