@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2330d4ea6ad94ce88a2f99f671b323bf" Name="Diagram1">
+        <EntityTypeShape EntityType="Ayupov_ServiceModel.Client" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Ayupov_ServiceModel.ClientService" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Ayupov_ServiceModel.DocumentByService" Width="1.5" PointX="5.25" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="Ayupov_ServiceModel.Gender" Width="1.5" PointX="1.5" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Ayupov_ServiceModel.Manufacturer" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="Ayupov_ServiceModel.Product" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Ayupov_ServiceModel.ProductPhoto" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="Ayupov_ServiceModel.ProductSale" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Ayupov_ServiceModel.Service" Width="1.5" PointX="0.75" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Ayupov_ServiceModel.ServicePhoto" Width="1.5" PointX="3" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="Ayupov_ServiceModel.Tag" Width="1.5" PointX="3" PointY="16.25" IsExpanded="true" />
+        <AssociationConnector Association="Ayupov_ServiceModel.FK_client_a_import1_Gender" ManuallyRouted="false" />
+        <AssociationConnector Association="Ayupov_ServiceModel.FK_ClientService_client_a_import1" ManuallyRouted="false" />
+        <AssociationConnector Association="Ayupov_ServiceModel.FK_ClientService_service_a_import" ManuallyRouted="false" />
+        <AssociationConnector Association="Ayupov_ServiceModel.FK_DocumentByService_ClientService" ManuallyRouted="false" />
+        <AssociationConnector Association="Ayupov_ServiceModel.FK_ProductSale_ClientService" ManuallyRouted="false" />
+        <AssociationConnector Association="Ayupov_ServiceModel.FK_Product_Manufacturer" ManuallyRouted="false" />
+        <AssociationConnector Association="Ayupov_ServiceModel.FK_ProductPhoto_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="Ayupov_ServiceModel.FK_ProductSale_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="Ayupov_ServiceModel.FK_ServicePhoto_service_a_import" ManuallyRouted="false" />
+        <AssociationConnector Association="Ayupov_ServiceModel.AttachedProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="Ayupov_ServiceModel.TagOfClient" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

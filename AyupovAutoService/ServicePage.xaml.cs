@@ -23,6 +23,8 @@ namespace AyupovAutoService
         public ServicePage()
         {
             InitializeComponent();
+            var currentServices = Ayupov_ServiceEntities.GetContext().Service.ToList();
+            ServiceListView.ItemsSource = currentServices;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
