@@ -15,16 +15,16 @@ namespace AyupovAutoService
     
     public partial class Ayupov_ServiceEntities : DbContext
     {
-        private static Ayupov_ServiceEntities _context;
-        
-        public static Ayupov_ServiceEntities GetContext()
+       private static Ayupov_ServiceEntities _context;
+
+       public static Ayupov_ServiceEntities GetContext()
         {
-            if (_context == null)
-                _context = new Ayupov_ServiceEntities();
+        if(_context == null)
+            _context = new Ayupov_ServiceEntities();
 
-            return _context;
+         return _context;
         }
-
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

@@ -18,14 +18,14 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Фамилия" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Имя" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Отчество" Type="nvarchar" MaxLength="50" />
-          <Property Name="Пол" Type="nchar" MaxLength="1" Nullable="false" />
-          <Property Name="Телефон" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Дата_рождения" Type="date" />
+          <Property Name="LasName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="50" />
+          <Property Name="GenderCode" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Birthday" Type="date" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" />
-          <Property Name="Дата_регистрации" Type="date" Nullable="false" />
+          <Property Name="RegistationDate" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="ClientService">
           <Key>
@@ -95,12 +95,12 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Наименование_услуги" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Главное_изображение" Type="nvarchar" MaxLength="100" />
-          <Property Name="Длительность" Type="nvarchar" MaxLength="8" Nullable="false" />
-          <Property Name="Стоимость" Type="decimal" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="Действующая_скидка" Type="float" />
-          <Property Name="Описание" Type="nvarchar(max)" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MainImagePath" Type="nvarchar" MaxLength="100" />
+          <Property Name="DurationInSeconds" Type="nvarchar" MaxLength="8" Nullable="false" />
+          <Property Name="Cost" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Discount" Type="float" />
+          <Property Name="Description" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="ServicePhoto">
           <Key>
@@ -158,7 +158,7 @@
               <PropertyRef Name="Code" />
             </Principal>
             <Dependent Role="Client">
-              <PropertyRef Name="Пол" />
+              <PropertyRef Name="GenderCode" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -359,14 +359,14 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Фамилия" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Имя" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Отчество" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Пол" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Телефон" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Дата_рождения" Type="DateTime" Precision="0" />
+          <Property Name="LasName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GenderCode" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Birthday" Type="DateTime" Precision="0" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Дата_регистрации" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="RegistationDate" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="Gender" Relationship="Self.FK_client_a_import1_Gender" FromRole="Client" ToRole="Gender" />
           <NavigationProperty Name="ClientService" Relationship="Self.FK_ClientService_client_a_import1" FromRole="Client" ToRole="ClientService" />
           <NavigationProperty Name="Tag" Relationship="Self.TagOfClient" FromRole="Client" ToRole="Tag" />
@@ -454,12 +454,12 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Наименование_услуги" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Главное_изображение" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Длительность" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Стоимость" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="Действующая_скидка" Type="Double" />
-          <Property Name="Описание" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MainImagePath" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DurationInSeconds" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cost" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Discount" Type="Double" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ClientService" Relationship="Self.FK_ClientService_service_a_import" FromRole="Service" ToRole="ClientService" />
           <NavigationProperty Name="ServicePhoto" Relationship="Self.FK_ServicePhoto_service_a_import" FromRole="Service" ToRole="ServicePhoto" />
         </EntityType>
@@ -489,7 +489,7 @@
               <PropertyRef Name="Code" />
             </Principal>
             <Dependent Role="Client">
-              <PropertyRef Name="Пол" />
+              <PropertyRef Name="GenderCode" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -664,14 +664,14 @@
             <EntityTypeMapping TypeName="Ayupov_ServiceModel.Client">
               <MappingFragment StoreEntitySet="Client">
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
-                <ScalarProperty Name="Имя" ColumnName="Имя" />
-                <ScalarProperty Name="Отчество" ColumnName="Отчество" />
-                <ScalarProperty Name="Пол" ColumnName="Пол" />
-                <ScalarProperty Name="Телефон" ColumnName="Телефон" />
-                <ScalarProperty Name="Дата_рождения" ColumnName="Дата_рождения" />
+                <ScalarProperty Name="LasName" ColumnName="LasName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="GenderCode" ColumnName="GenderCode" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Дата_регистрации" ColumnName="Дата_регистрации" />
+                <ScalarProperty Name="RegistationDate" ColumnName="RegistationDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -749,12 +749,12 @@
             <EntityTypeMapping TypeName="Ayupov_ServiceModel.Service">
               <MappingFragment StoreEntitySet="Service">
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Наименование_услуги" ColumnName="Наименование_услуги" />
-                <ScalarProperty Name="Главное_изображение" ColumnName="Главное_изображение" />
-                <ScalarProperty Name="Длительность" ColumnName="Длительность" />
-                <ScalarProperty Name="Стоимость" ColumnName="Стоимость" />
-                <ScalarProperty Name="Действующая_скидка" ColumnName="Действующая_скидка" />
-                <ScalarProperty Name="Описание" ColumnName="Описание" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="MainImagePath" ColumnName="MainImagePath" />
+                <ScalarProperty Name="DurationInSeconds" ColumnName="DurationInSeconds" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
