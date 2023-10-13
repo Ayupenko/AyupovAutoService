@@ -9,7 +9,20 @@
       Title="ServicePage">
 
     <Grid>
-        <Button Click="Button_Click" Height="30" Width="175" Content="Go" Background="#FFFF9C1A"></Button>
+       
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <StackPanel Margin="10" Orientation="Horizontal">
+                <TextBlock Text="Введите название для поиска" TextAlignment="Right"
+                           Width="300" FontSize="15" ></TextBlock>
+                <TextBox Name="T"
+            </StackPanel>
+        </WrapPanel>
+
         <ListView Name="ServiceListView" >
             <ListView.ItemTemplate>
                 <DataTemplate>
