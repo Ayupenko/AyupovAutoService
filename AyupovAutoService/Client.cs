@@ -22,14 +22,14 @@ namespace AyupovAutoService
         }
     
         public int ID { get; set; }
-        public string Фамилия { get; set; }
-        public string Имя { get; set; }
-        public string Отчество { get; set; }
-        public string Пол { get; set; }
-        public string Телефон { get; set; }
-        public Nullable<System.DateTime> Дата_рождения { get; set; }
+        public string LasName { get; set; }
+        public string FirstName { get; set; }
+        public string Patronymic { get; set; }
+        public string GenderCode { get; set; }
+        public string Phone { get; set; }
+        public Nullable<System.DateTime> Birthday { get; set; }
         public string Email { get; set; }
-        public System.DateTime Дата_регистрации { get; set; }
+        public System.DateTime RegistationDate { get; set; }
     
         public virtual Gender Gender { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

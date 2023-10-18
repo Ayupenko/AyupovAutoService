@@ -22,12 +22,12 @@ namespace AyupovAutoService
         }
     
         public int ID { get; set; }
-        public string Наименование_услуги { get; set; }
-        public string Главное_изображение { get; set; }
-        public string Длительность { get; set; }
-        public decimal Стоимость { get; set; }
-        public Nullable<double> Действующая_скидка { get; set; }
-        public string Описание { get; set; }
+        public string Title { get; set; }
+        public string MainImagePath { get; set; }
+        public string DurationInSeconds { get; set; }
+        public decimal Cost { get; set; }
+        public Nullable<double> Discount { get; set; }
+        public string Description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ClientService> ClientService { get; set; }
