@@ -123,5 +123,11 @@ namespace AyupovAutoService
                 ServiceListView.ItemsSource = Ayupov_ServiceEntities.GetContext().Service.ToList();
             }
         }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            var currentService = (sender as Button).DataContext as Service;
+            if(MessageBox.Show("Вы точно хотите выполнить удаление?"))
+        }
     }
 }
