@@ -42,6 +42,13 @@ namespace AyupovAutoService
 
             if (_currentServise.Discount<0)
                 errors.AppendLine("Укажите скидку");
+            if(string.IsNullOrWhiteSpace(_currentServise.Discount.ToString()))
+            {
+                _currentServise.Discount = 0;
+
+            }
+
+               
             if (string.IsNullOrWhiteSpace(_currentServise.DurationInSeconds))
                 errors.AppendLine("Укажите длительность услуги");
 
