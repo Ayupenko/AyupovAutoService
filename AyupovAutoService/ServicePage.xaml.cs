@@ -76,6 +76,8 @@ namespace AyupovAutoService
 
             }
             ServiceListView.ItemsSource= currentServices;
+            TableList = currentServices;
+            ChangePage(0, 0);
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -163,12 +165,12 @@ namespace AyupovAutoService
 
         private void LeftDirButton_Click(object sender, RoutedEventArgs e)
         {
-
+            ChangePage(1, null);
         }
 
         private void RightDirButton_Click(object sender, RoutedEventArgs e)
         {
-
+            ChangePage(2, null);
         }
         private void ChangePage(int direction, int? selectedPage)
         {
@@ -203,14 +205,14 @@ namespace AyupovAutoService
                 }
                 else
                 {
-                    switch(direction)
+                    switch (direction)
                     {
                         case 1:
-                            if(CurrentPage>0)
+                            if (CurrentPage > 0)
                             {
                                 CurrentPage--;
-                                min=CurrentPage*10+10<CountRecords ? CurrentPage*10+10 : CountRecords;
-                                for( int i = CurrentPage*10;i<min;i++)
+                                min = CurrentPage * 10 + 10 < CountRecords ? CurrentPage * 10 + 10 : CountRecords;
+                                for (int i = CurrentPage * 10; i < min; i++)
                                 {
                                     CurrentPageList.Add(TableList[i]);
                                 }
@@ -222,36 +224,39 @@ namespace AyupovAutoService
                             break;
 
                         case 2:
-                            if(CurrentPage<CountPage-1)
+                            if (CurrentPage < CountPage - 1)
                             {
                                 CurrentPage++;
                                 min = CurrentPage * 10 + 10 < CountRecords ? CurrentPage * 10 + 10 : CountRecords;
-                                for(int i=CurrentPage*10;i<min;i++)
+                                for (int i = CurrentPage * 10; i < min; i++)
                                 {
                                     CurrentPageList.Add(TableList[i]);
 
                                 }
-                                
+
                             }
                             else
                             {
                                 Ifupdate = false;
                             }
                             break;
-                            if (Ifupdate)
-                            {
-                                PageListBox.Items.Clear();
-                                for(int i = 1;i<=CountPage;i++) 
-                                {
-                                    PageListBox.Items.Add(i);
-                                }
-                                PageListBox.SelectedIndex = CurrentPage;
-                                ServiceListView.ItemsSource = CurrentPageList;
-
-                                ServiceListView.Items.Refresh(); 
-                            }
-                        
                     }
+                    if (Ifupdate)
+                    {
+                        PageListBox.Items.Clear();
+                        for (int i = 1; i <= CountPage; i++)
+                        {
+                            PageListBox.Items.Add(i);
+                        }
+                        PageListBox.SelectedIndex = CurrentPage;
+                        min = CurrentPage * 10 + 10 < CountRecords ? CurrentPage * 10 + 10 : CountRecords;
+                        TBCount.Text= min.ToString();
+                        TBAallRecords.Text=" из " + CountRecords.ToString();
+                        ServiceListView.ItemsSource = CurrentPageList;
+
+                        ServiceListView.Items.Refresh();
+                    }
+
                 }
             }
         }
