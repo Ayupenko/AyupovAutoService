@@ -83,7 +83,7 @@
                             <Image.Source>
                                 <Binding Path="MainImagePath">
                                     <Binding.TargetNullValue>
-                                        <ImageSource>Res/Услуги автосервиса/picture.png</ImageSource>
+                                        <ImageSource>Услуги автосервиса/picture.png</ImageSource>
                                     </Binding.TargetNullValue>
                                 </Binding>
                             </Image.Source>
