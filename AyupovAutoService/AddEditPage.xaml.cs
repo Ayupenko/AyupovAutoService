@@ -49,27 +49,45 @@ namespace AyupovAutoService
             }
 
                
-            if (string.IsNullOrWhiteSpace(_currentServise.DurationInSeconds))
+            if (_currentServise.DurationInSeconds==0)
                 errors.AppendLine("Укажите длительность услуги");
+
+            if(_currentServise.DurationInSeconds>240 || _currentServise.DurationInSeconds <= 0) 
+            {
+                errors.AppendLine("Длительность не может быть больше 240 минут или меньше 0");
+
+            }
+           
 
             if(errors.Length>0)
             {
                 MessageBox.Show(errors.ToString());
                 return;
             }
-            if (_currentServise.ID == 0)
-                Ayupov_ServiceEntities.GetContext().Service.Add(_currentServise);
-            try
+            var allServices = Ayupov_ServiceEntities.GetContext().Service.ToList();
+            allServices= allServices.Where(p=>p.Title == _currentServise.Title).ToList();
+            if (allServices.Count == 0)
             {
-                Ayupov_ServiceEntities.GetContext().SaveChanges();
-                MessageBox.Show("Информация сохранена");
-                Manager.MainFrame.GoBack();
-            
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message.ToString());
 
+
+                if (_currentServise.ID == 0)
+                    Ayupov_ServiceEntities.GetContext().Service.Add(_currentServise);
+                try
+                {
+                    Ayupov_ServiceEntities.GetContext().SaveChanges();
+                    MessageBox.Show("Информация сохранена");
+                    Manager.MainFrame.GoBack();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Уже существует такая услуга");
             }
 
         }

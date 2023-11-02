@@ -12,19 +12,28 @@ namespace AyupovAutoService
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    using System.Security.RightsManagement;
-
+    
     public partial class Ayupov_ServiceEntities : DbContext
     {
-        private static Ayupov_ServiceEntities _context;
-
-        public static Ayupov_ServiceEntities GetContext()
+        public Ayupov_ServiceEntities()
+            : base("name=Ayupov_ServiceEntities")
         {
-            if(_context == null)
-                _context = new Ayupov_ServiceEntities();
-            return _context;
-        }
 
+        }
+        private static Ayupov_ServiceEntities _context;
+        public static Ayupov_ServiceEntities GetContext() 
+        {
+            if (_context == null) 
+            { 
+                _context = new Ayupov_ServiceEntities(); 
+            } 
+            return _context; 
+        }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            throw new UnintentionalCodeFirstException();
+        }
+    
         public virtual DbSet<Client> Client { get; set; }
         public virtual DbSet<ClientService> ClientService { get; set; }
         public virtual DbSet<DocumentByService> DocumentByService { get; set; }
