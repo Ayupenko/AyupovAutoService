@@ -46,8 +46,8 @@
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
                         <Label Content="{Binding FirstName}"></Label>
-                        <Label Content="{Binding LastName}"></Label>
-                        <Label Content="{Binding Patronomic}"></Label>
+                        <Label Content="{Binding LasName}"></Label>
+                        <Label Content="{Binding Patronymic}"></Label>
                     </StackPanel>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
